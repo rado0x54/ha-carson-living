@@ -1,0 +1,32 @@
+{
+  "config": {
+    "abort": {
+      "already_configured": "El dispositivo ya est\u00e1 configurado"
+    },
+    "error": {
+      "cannot_connect": "Error de conexi\u00f3n",
+      "invalid_auth": "Autenticaci\u00f3n inv\u00e1lida",
+      "unknown": "Error inesperado"
+    },
+    "step": {
+      "user": {
+        "data": {
+          "password": "Contrase\u00f1a",
+          "username": "Usuario"
+        },
+        "title": "Iniciar sesi\u00f3n con cuenta de Carson"
+      }
+    },
+    "title": "Carson"
+  },
+  "options": {
+    "step": {
+      "carson_devices": {
+        "description": "Configurar la visibilidad de los tipos de dispositivos Carson",
+        "data": {
+          "list_from_eagle_eye": "Lista de c\u00e1maras directamente desde Eagle Eye"
+        }
+      }
+    }
+  }
+}
