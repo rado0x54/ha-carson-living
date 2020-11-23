@@ -28,7 +28,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
     else:
         cameras = [camera for b in carson.buildings for camera in b.cameras]
 
-    async_add_entities(EagleEyeCamera(config_entry.entry_id, cam) for cam in cameras)
+    async_add_entities(EagleEyeCamera(config_entry.entry_id, cam, hass) for cam in cameras)
 
 
 def get_list_een_option(config_entry):
@@ -41,10 +41,11 @@ def get_list_een_option(config_entry):
 class EagleEyeCamera(CarsonEntityMixin, Camera):
     """An implementation of a Eagle Eye camera."""
 
-    def __init__(self, config_entry_id, ee_camera):
+    def __init__(self, config_entry_id, ee_camera, hass):
         """Initialize the lock."""
         super().__init__(config_entry_id, ee_camera)
         self._ee_camera = ee_camera
+        self._hass = hass
 
     @property
     def name(self):
@@ -78,7 +79,7 @@ class EagleEyeCamera(CarsonEntityMixin, Camera):
     async def stream_source(self):
         """Return the stream source."""
         _LOGGER.debug("Getting live camera video stream for %s", self.name)
-        return self._ee_camera.get_video_url(timedelta(minutes=5))
+        return await self._hass.async_add_executor_job(self._ee_camera.get_video_url, timedelta(minutes=5))
 
     def turn_off(self):
         """Turn off camera."""
