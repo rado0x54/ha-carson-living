@@ -3,3 +3,6 @@ homeassistant==0.118.3
 aiohttp_cors
 carson_living==0.0.5
 flake8
+pytest
+pytest-cov
+coveralls

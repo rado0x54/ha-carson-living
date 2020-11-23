@@ -32,4 +32,9 @@ jobs:
         pylint --rcfile=setup.cfg custom_components/carson/ tests/
     - name: Test with pytest
       run: |
-        python -m pytest
+        python -m pytest --cov --cov-report term-missing --cov-config=setup.cfg
+    - name: Coveralls
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      run: |
+        coveralls
