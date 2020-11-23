@@ -26,11 +26,10 @@ jobs:
         pip install -r requirements_test.txt
     - name: Lint with flake8
       run: |
-        # stop the build if there are Python syntax errors or undefined names
         flake8 custom_components/carson/ tests/
     - name: Lint with pylint
       run: |
-        python -m pylint --rcfile=setup.cfg custom_components/carson/ tests/
+        pylint --rcfile=setup.cfg custom_components/carson/ tests/
     - name: Test with pytest
       run: |
         python -m pytest

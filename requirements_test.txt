@@ -2,3 +2,4 @@ pytest-homeassistant-custom-component==0.0.8
 homeassistant==0.118.3
 aiohttp_cors
 carson_living==0.0.5
+flake8

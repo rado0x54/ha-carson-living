@@ -27,6 +27,7 @@ async def setup_platform(hass, platform):
         assert await async_setup_component(hass, DOMAIN, {})
     await hass.async_block_till_done()
 
+
 def carson_load_fixture(filename):
     """Return file content from Carson fixture subfolder."""
     path = os.path.join(os.path.dirname(__file__), "fixtures", filename)
