@@ -2,7 +2,7 @@
 import asyncio
 import logging
 
-from homeassistant.components.lock import SUPPORT_OPEN, LockDevice
+from homeassistant.components.lock import SUPPORT_OPEN, LockEntity
 
 from .const import DOMAIN, UNLOCKED_TIMESPAN_SEC
 from .entity import CarsonEntityMixin
@@ -19,7 +19,7 @@ async def async_setup_entry(hass, config_entry, async_add_entities):
     async_add_entities(CarsonLock(config_entry.entry_id, door) for door in doors)
 
 
-class CarsonLock(CarsonEntityMixin, LockDevice):
+class CarsonLock(CarsonEntityMixin, LockEntity):
     """Representation of an Carson Door lock."""
 
     def __init__(self, config_entry_id, carson_door):
