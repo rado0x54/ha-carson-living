@@ -10,11 +10,10 @@ from custom_components import carson
 from .common import CONF_AND_FORM_CREDS
 
 
-
 VALID_CONFIG = {"carson": CONF_AND_FORM_CREDS}
 
 
-async def test_creating_entry_sets_up_devices(hass, success_requests_mock): # pylint: disable=unused-argument
+async def test_creating_entry_sets_up_devices(hass, success_requests_mock):  # pylint: disable=unused-argument
     """Test setting up carson loads device entities."""
 
     with patch(
@@ -41,7 +40,7 @@ async def test_creating_entry_sets_up_devices(hass, success_requests_mock): # py
     assert len(camera_mock_setup.mock_calls) == 1
 
 
-async def test_configuring_carson_creates_entry(hass, success_requests_mock): # pylint: disable=unused-argument
+async def test_configuring_carson_creates_entry(hass, success_requests_mock):  # pylint: disable=unused-argument
     """Test that specifying config will create an entry."""
 
     with patch(
