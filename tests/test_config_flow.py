@@ -5,9 +5,8 @@ from carson_living import CarsonAuthenticationError, CarsonCommunicationError
 from homeassistant import config_entries, setup
 from custom_components.carson.const import CONF_LIST_FROM_EAGLE_EYE, DOMAIN
 
-from .common import CONF_AND_FORM_CREDS
-
 from tests.common import MockConfigEntry
+from .common import CONF_AND_FORM_CREDS
 
 
 async def test_form(hass):

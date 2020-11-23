@@ -2,17 +2,19 @@
 from unittest.mock import patch
 
 from homeassistant import config_entries, data_entry_flow
-from custom_components import carson
 from homeassistant.setup import async_setup_component
 
+from pytest_homeassistant_custom_component.common import mock_coro
+
+from custom_components import carson
 from .common import CONF_AND_FORM_CREDS
 
-from pytest_homeassistant_custom_component.common import mock_coro
+
 
 VALID_CONFIG = {"carson": CONF_AND_FORM_CREDS}
 
 
-async def test_creating_entry_sets_up_devices(hass, success_requests_mock):
+async def test_creating_entry_sets_up_devices(hass, success_requests_mock): # pylint: disable=unused-argument
     """Test setting up carson loads device entities."""
 
     with patch(
@@ -39,7 +41,7 @@ async def test_creating_entry_sets_up_devices(hass, success_requests_mock):
     assert len(camera_mock_setup.mock_calls) == 1
 
 
-async def test_configuring_carson_creates_entry(hass, success_requests_mock):
+async def test_configuring_carson_creates_entry(hass, success_requests_mock): # pylint: disable=unused-argument
     """Test that specifying config will create an entry."""
 
     with patch(

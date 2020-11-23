@@ -31,12 +31,12 @@ async def validate_input(hass: core.HomeAssistant, data):
 
     try:
         await hass.async_add_executor_job(auth.update_token)
-    except CarsonAuthenticationError:
+    except CarsonAuthenticationError as error:
         _LOGGER.warning("Authentication error for %s", data["username"])
-        raise InvalidAuth
-    except CarsonCommunicationError:
+        raise InvalidAuth from error
+    except CarsonCommunicationError as error:
         _LOGGER.warning("Communication error with Carson API.")
-        raise CannotConnect
+        raise CannotConnect from error
 
     # Return info that you want to store in the config entry.
     return auth.token
@@ -107,6 +107,7 @@ class CarsonOptionsFlowHandler(config_entries.OptionsFlow):
         self.options = dict(config_entry.options)
 
     async def async_step_init(self, user_input=None):
+        # pylint: disable=unused-argument
         """Manage the Carson options."""
         return await self.async_step_carson_devices()
 

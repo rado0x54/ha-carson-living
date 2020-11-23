@@ -3,11 +3,10 @@ import json
 import os
 
 from unittest.mock import patch
+from homeassistant.setup import async_setup_component
+from pytest_homeassistant_custom_component.common import MockConfigEntry
 
 from custom_components.carson import DOMAIN
-from homeassistant.setup import async_setup_component
-
-from pytest_homeassistant_custom_component.common import MockConfigEntry
 
 CARSON_API_VERSION = "1.4.3"
 CONF_AND_FORM_CREDS = {"username": "foo@bar.com", "password": "bar"}

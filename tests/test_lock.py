@@ -6,7 +6,7 @@ from homeassistant.components.lock import DOMAIN as LOCK_DOMAIN
 from .common import CARSON_API_VERSION, carson_load_fixture, setup_platform
 
 
-async def test_entity_registry(hass, success_requests_mock):
+async def test_entity_registry(hass, success_requests_mock): # pylint: disable=unused-argument
     """Tests that the devices are registered in the entity registry."""
     await setup_platform(hass, LOCK_DOMAIN)
     entity_registry = await hass.helpers.entity_registry.async_get_registry()
@@ -21,7 +21,7 @@ async def test_entity_registry(hass, success_requests_mock):
     assert entry.unique_id == "carson_door_23"
 
 
-async def test_lock_reports_correct_initial_values(hass, success_requests_mock):
+async def test_lock_reports_correct_initial_values(hass, success_requests_mock): # pylint: disable=unused-argument
     """Tests that the initial state of a lock is correct."""
     await setup_platform(hass, LOCK_DOMAIN)
 
