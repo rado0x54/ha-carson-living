@@ -2,7 +2,8 @@
   "domain": "carson",
   "name": "Carson",
   "config_flow": true,
-  "documentation": "https://www.home-assistant.io/integrations/carson",
+  "documentation": "https://github.com/rado0x54/ha-carson-living/blob/master/README.md",
+  "issue_tracker": "https://github.com/rado0x54/ha-carson-living/issues",
   "requirements": [
     "carson_living==0.0.5"
   ],

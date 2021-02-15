@@ -1,5 +1,5 @@
 """Test the Carson config flow."""
-from asynctest import Mock, patch
+from unittest.mock import patch, Mock
 from carson_living import CarsonAuthenticationError, CarsonCommunicationError
 
 from homeassistant import config_entries, setup

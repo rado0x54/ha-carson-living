@@ -26,10 +26,10 @@ jobs:
         pip install -r requirements_tests.txt
     - name: Lint with flake8
       run: |
-        flake8 custom_components/carson/ tests/
+        python -m flake8 custom_components/carson/ tests/
     - name: Lint with pylint
       run: |
-        pylint --rcfile=setup.cfg custom_components/carson/ tests/
+        python -m pylint --rcfile=setup.cfg custom_components/carson/ tests/
     - name: Test with pytest
       run: |
         python -m pytest --cov --cov-report term-missing --cov-config=setup.cfg
