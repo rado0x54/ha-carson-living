@@ -1,5 +1,5 @@
 pytest-homeassistant-custom-component==0.2.0
-homeassistant==2021.2.3
+homeassistant==2023.9.0
 aiohttp_cors
 carson_living==0.0.5
 flake8
